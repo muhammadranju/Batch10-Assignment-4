@@ -43,7 +43,7 @@ function checkDigitsInName(name) {
 }
 
 function calculateFinalScore(obj) {
-  if (typeof obj !== "object" || obj === null || Array.isArray(obj)) {
+  if (typeof obj !== "object" || Array.isArray(obj)) {
     return "Invalid Input";
   }
   let calculateScore = obj.testScore + obj.schoolGrade;
@@ -51,4 +51,25 @@ function calculateFinalScore(obj) {
     calculateScore += 20;
   }
   return calculateScore >= 80 ? true : false;
+}
+
+function waitingTime(waitingTimes, serialNumber) {
+  if (!Array.isArray(waitingTimes) || typeof serialNumber !== "number") {
+    return "Invalid Input";
+  }
+
+  let totalTime = 0;
+
+  for (let time of waitingTimes) {
+    totalTime += time;
+  }
+  const timeAvg = Math.round(totalTime / waitingTimes.length);
+
+  const stillWaiting = serialNumber - 1;
+
+  const sinceWaiting = stillWaiting - waitingTimes.length;
+
+  const waitingTimeAre = timeAvg * sinceWaiting;
+
+  return waitingTimeAre;
 }
