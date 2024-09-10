@@ -2,7 +2,6 @@ function calculateTax(income, expenses) {
   if (income <= 0 || expenses <= 0) {
     return "Invalid Input";
   }
-
   if (income < expenses) {
     return "Invalid Input";
   }
@@ -15,11 +14,9 @@ function sendNotification(email) {
   const splitText = email.split("@");
   const name = splitText[0];
   const domain = splitText[1];
-
   if (!email.includes("@")) {
     return "Invalid Email";
   }
-
   const message = `${name} sent you an email from ${domain}`;
   return message;
 }
@@ -29,9 +26,7 @@ function checkDigitsInName(name) {
     return "Invalid Input";
   }
   const isNumberExist = name.split("");
-
   let isTrueFalse;
-
   for (let value of isNumberExist) {
     if (!isNaN(parseFloat(value)) && value !== " ") {
       isTrueFalse = true;
@@ -57,19 +52,16 @@ function waitingTime(waitingTimes, serialNumber) {
   if (!Array.isArray(waitingTimes) || typeof serialNumber !== "number") {
     return "Invalid Input";
   }
-
   let totalTime = 0;
-
   for (let time of waitingTimes) {
     totalTime += time;
   }
   const timeAvg = Math.round(totalTime / waitingTimes.length);
-
   const stillWaiting = serialNumber - 1;
-
   const sinceWaiting = stillWaiting - waitingTimes.length;
-
+  if (sinceWaiting <= 0) {
+    return 0;
+  }
   const waitingTimeAre = timeAvg * sinceWaiting;
-
   return waitingTimeAre;
 }
