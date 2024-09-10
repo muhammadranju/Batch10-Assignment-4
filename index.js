@@ -11,8 +11,6 @@ function calculateTax(income, expenses) {
   return totalIncome;
 }
 
-//-------
-
 function sendNotification(email) {
   const splitText = email.split("@");
   const [name, domain] = splitText;
@@ -23,4 +21,22 @@ function sendNotification(email) {
 
   const message = `${name} sent you an email from ${domain}`;
   return message;
+}
+
+function checkDigitsInName(name) {
+  if (typeof name !== "string") {
+    return "Invalid Input";
+  }
+  const isNumberExist = name.split("");
+
+  let isTrueFalse;
+
+  for (let value of isNumberExist) {
+    if (!isNaN(parseFloat(value)) && value !== " ") {
+      isTrueFalse = true;
+    } else {
+      isTrueFalse = false;
+    }
+  }
+  return isTrueFalse;
 }
