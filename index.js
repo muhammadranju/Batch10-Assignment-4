@@ -13,7 +13,8 @@ function calculateTax(income, expenses) {
 
 function sendNotification(email) {
   const splitText = email.split("@");
-  const [name, domain] = splitText;
+  const name = splitText[0];
+  const domain = splitText[1];
 
   if (!email.includes("@")) {
     return "Invalid Email";
@@ -39,4 +40,15 @@ function checkDigitsInName(name) {
     }
   }
   return isTrueFalse;
+}
+
+function calculateFinalScore(obj) {
+  if (typeof obj !== "object" || obj === null || Array.isArray(obj)) {
+    return "Invalid Input";
+  }
+  let calculateScore = obj.testScore + obj.schoolGrade;
+  if (obj.isFFamily) {
+    calculateScore += 20;
+  }
+  return calculateScore >= 80 ? true : false;
 }
