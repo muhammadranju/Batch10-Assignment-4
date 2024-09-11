@@ -5,9 +5,9 @@ function calculateTax(income, expenses) {
   if (income < expenses) {
     return "Invalid Input";
   }
-  const total = income - expenses;
-  const totalIncome = total * 0.2;
-  return totalIncome;
+  const totalProfit = income - expenses;
+  const totalTax = totalProfit * 0.2;
+  return totalTax;
 }
 
 function sendNotification(email) {
@@ -15,6 +15,10 @@ function sendNotification(email) {
   const name = splitText[0];
   const domain = splitText[1];
   if (!email.includes("@")) {
+    return "Invalid Email";
+  }
+
+  if (!name || !domain) {
     return "Invalid Email";
   }
   const message = `${name} sent you an email from ${domain}`;
@@ -26,15 +30,13 @@ function checkDigitsInName(name) {
     return "Invalid Input";
   }
   const isNumberExist = name.split("");
-  let isTrueFalse;
+
   for (let value of isNumberExist) {
-    if (!isNaN(parseFloat(value)) && value !== " ") {
-      isTrueFalse = true;
-    } else {
-      isTrueFalse = false;
+    if (!isNaN(parseInt(value)) && value !== " ") {
+      return true;
     }
   }
-  return isTrueFalse;
+  return false;
 }
 
 function calculateFinalScore(obj) {
