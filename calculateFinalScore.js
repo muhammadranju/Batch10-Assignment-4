@@ -18,6 +18,6 @@ const result = calculateFinalScore({
   name: "Rajib",
   testScore: 15,
   schoolGrade: 25,
-  isFFamily: false,
+  isFFamily: true,
 });
 console.log(result);

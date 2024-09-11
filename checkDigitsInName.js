@@ -6,12 +6,11 @@ function checkDigitsInName(name) {
 
   for (let value of isNumberExist) {
     if (!isNaN(parseInt(value)) && value !== " ") {
-      console.log(typeof value);
       return true;
     }
   }
   return false;
 }
 
-const result = checkDigitsInName("n9ayeem");
+const result = checkDigitsInName(["Raj"]);
 console.log(result);
