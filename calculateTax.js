@@ -2,14 +2,12 @@ function calculateTax(income, expenses) {
   if (income < 0 || expenses < 0) {
     return "Invalid Input";
   }
-
   if (income < expenses) {
     return "Invalid Input";
   }
-  const total = income - expenses;
-  const totalIncome = total * 0.2;
-  return totalIncome;
+  const totalProfit = income - expenses;
+  const totalTax = totalProfit * 0.2;
+  return totalTax;
 }
-
-const result = calculateTax(10, 10);
+const result = calculateTax(6000, 600);
 console.log(result);

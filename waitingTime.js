@@ -9,6 +9,7 @@ function waitingTime(waitingTimes, serialNumber) {
   const timeAvg = Math.round(totalTime / waitingTimes.length);
   const stillWaiting = serialNumber - 1;
   const sinceWaiting = stillWaiting - waitingTimes.length;
+
   if (sinceWaiting <= 0) {
     return 0;
   }

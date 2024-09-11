@@ -13,5 +13,5 @@ function sendNotification(email) {
   return message;
 }
 
-const result = sendNotification("zihad@gmail.com");
+const result = sendNotification("zihad@@gmail.com");
 console.log(result);

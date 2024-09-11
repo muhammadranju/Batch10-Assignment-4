@@ -1,5 +1,5 @@
 function calculateTax(income, expenses) {
-  if (income <= 0 || expenses <= 0) {
+  if (income < 0 || expenses < 0) {
     return "Invalid Input";
   }
   if (income < expenses) {
@@ -43,7 +43,13 @@ function calculateFinalScore(obj) {
   if (typeof obj !== "object" || Array.isArray(obj)) {
     return "Invalid Input";
   }
+
+  if (obj.testScore > 50 || obj.schoolGrade > 30) {
+    return "Invalid Input";
+  }
+
   let calculateScore = obj.testScore + obj.schoolGrade;
+
   if (obj.isFFamily) {
     calculateScore += 20;
   }
